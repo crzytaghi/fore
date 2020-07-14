@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^scorecards$ controllers/scorecards.php?action=index
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^scorecards$ controllers/scorecards.php?action=create
+
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^scorecards/([0-9]+)$ controllers/scorecards.php?action=update&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^scorecards/([0-9]+)$ controllers/scorecards.php?action=delete&id=$1
