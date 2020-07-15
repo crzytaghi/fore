@@ -1,0 +1,16 @@
+.table {
+  margin: 10px auto;
+}
+
+table {
+  border: 1px solid grey;
+  margin: 10px auto;
+}
+
+tr {
+  border: 1px solid grey;
+}
+
+th {
+  border: 1px solid grey;
+}
