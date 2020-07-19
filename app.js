@@ -302,7 +302,7 @@ class Par extends React.Component{
 
   updatePar = (event) => {
     const { index } = this.props
-    event.preventDefault();
+    // event.preventDefault();
     const id = event.target.getAttribute('id');
     axios.put(
       '/scorecards/' + id,
@@ -550,9 +550,9 @@ class Score extends React.Component{
         : (
         <tr>
           <th>Score</th>
-          <th>{index.par1}</th><th>{index.par2}</th><th>{index.par3}</th><th>{index.par4}</th><th>{index.par5}</th><th>{index.par6}</th>
-          <th>{index.par7}</th><th>{index.par8}</th><th>{index.par9}</th><th>{index.par10}</th><th>{index.par11}</th><th>{index.par12}</th>
-          <th>{index.par13}</th><th>{index.par14}</th><th>{index.par15}</th><th>{index.par16}</th><th>{index.par17}</th><th>{index.par18}</th>
+          <th>{index.score1}</th><th>{index.score2}</th><th>{index.score3}</th><th>{index.score4}</th><th>{index.score5}</th><th>{index.score6}</th>
+          <th>{index.score7}</th><th>{index.score8}</th><th>{index.score9}</th><th>{index.score10}</th><th>{index.score11}</th><th>{index.score12}</th>
+          <th>{index.score13}</th><th>{index.score14}</th><th>{index.score15}</th><th>{index.score16}</th><th>{index.score17}</th><th>{index.score18}</th>
         </tr> )
       }
         <tr>
