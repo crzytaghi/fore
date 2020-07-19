@@ -302,7 +302,7 @@ class Par extends React.Component{
 
   updatePar = (event) => {
     const { index } = this.props
-    // event.preventDefault();
+    event.preventDefault();
     const id = event.target.getAttribute('id');
     axios.put(
       '/scorecards/' + id,
@@ -486,7 +486,7 @@ class Score extends React.Component{
 
   updateScore = (event) => {
     const { index } = this.props
-    // event.preventDefault();
+    event.preventDefault();
     const id = event.target.getAttribute('id');
     axios.put(
       '/scorecards/' + id,
