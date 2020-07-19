@@ -1,5 +1,23 @@
 <?php
-$dbconn = pg_connect('host=localhost dbname=fore');
+// $dbconn = pg_connect('host=localhost dbname=fore');
+$dbconn = null;
+if(getenv('DATABASE_URL')){
+  $connectionConfig = parse_url(getenv('DATABASE_URL'));
+  $host = $connectionConfig['host'];
+  $user = $connectionConfig['user'];
+  $password = $connectionConfig['pass'];
+  $port = $connectionConfig['port'];
+  $dbname = trim($connectionConfig['path'],'/');
+  $dbconn = pg_connect(
+    "host=".$host." ".
+    "user=".$user." ".
+    "password=".$password." ".
+    "port=".$port." ".
+    "dbname=".$dbname
+  );
+} else {
+  $dbconn = pg_connect("host=localhost dbname=fore");
+}
 
 class Scorecard {
 
@@ -229,8 +247,8 @@ class Scorecards {
 
       score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, score11, score12, score13, score14, score15, score16, score17, score18)
 
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30,
-      $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57)";
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28,
+        $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57)";
     $query_params = array($scorecard->date, $scorecard->course, $scorecard->teebox,
 
       $scorecard->hole1, $scorecard->hole2, $scorecard->hole3, $scorecard->hole4, $scorecard->hole5, $scorecard->hole6, $scorecard->hole7,$scorecard->hole8, $scorecard->hole9,
