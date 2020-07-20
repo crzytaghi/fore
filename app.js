@@ -91,37 +91,6 @@ class App extends React.Component {
     })
   }
 
-// ========== UPDATE ========== //
-
-  // updateScore = (event) => {
-  //   // event.preventDefault();
-  //   const id = event.target.getAttribute('id');
-  //   axios.put(
-  //     '/scorecards/' + id,
-  //     {
-  //       // day:this.state.day,
-  //       // course:this.state.course,
-  //       // teebox:this.state.teebox,
-  //       // hole:this.state.hole,
-  //       par:this.state.par,
-  //       score:this.state.changeScore
-  //     }
-  //   ).then(
-  //     (response) => {
-  //       console.log(response.data);
-  //       this.setState({
-  //         golf:response.data
-  //       })
-  //     }
-  //   )
-  // }
-  //
-  // changeScore = (event) => {
-  //   this.setState({
-  //     changeScore:listItem
-  //   })
-  // }
-
 // ========== DELETE ========== //
   deleteScore = (event) => {
     // event.preventDefault();
@@ -137,59 +106,73 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="container">
-      <button onClick={this.toggleShow}>Add Score</button>
-      {(this.state.show) ?
-        <div>
-          <h2>Scorecard</h2>
-          <form onSubmit={this.createScorecard}>
-            <input onChange={this.newDate} type="date"/><br/>
-            <input onChange={this.newCourse} type="text" placeholder="Course Name"/><br/>
-            <input onChange={this.newTeebox} type="text" placeholder="Teebox"/><br/>
-            {/*<input onKeyUp={this.newHole} type="text" placeholder="Hole # {1,2,3,...,18}"/><br/>
-            <input onKeyUp={this.newPar} type="text" placeholder="Par {3,5,4,...,5}"/><br/>
-            <input onKeyUp={this.newScore} type="text" placeholder="Score {3,4,5,...,4}"/><br/>*/}
-            <input type="submit" value="Submit"/>
-          </form>
+        <div className="navbar">
+          <h1>Fore!</h1>
+          <button onClick={this.toggleShow}>Add Score</button>
         </div>
-        : null}
+        <div className="body">
+          <div className="form">
+            {(this.state.show) ?
+              <div className="form-body">
+                <h2>Create New!</h2>
+                <form onSubmit={this.createScorecard}>
+                  <input onChange={this.newDate} type="date"/><br/>
+                  <input onChange={this.newCourse} type="text" placeholder="Course Name"/><br/>
+                  <input onChange={this.newTeebox} type="text" placeholder="Teebox"/><br/>
+                  <input type="submit" value="Submit"/>
+                </form>
+              </div>
+              :
+              <div className="form-body">
+                <h2>Click Add Score to Create a Scorecard</h2>
+              </div>
+            }
+          </div>
 
-        <div className="table">
-          {this.state.golf.map((scorecard,index) => {
-            return (
-                <table key={index}>
-                  <thead>
-                    <tr>
-                      <th colSpan="19">Date: {scorecard.date}</th>
-                    </tr>
-                    <tr>
-                      <th colSpan="19">Course:{scorecard.course}</th>
-                    </tr>
-                    <tr>
-                      <th colSpan="19">Teebox: {scorecard.teebox}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>Hole</th>
-                      <th>{scorecard.hole1}</th><th>{scorecard.hole2}</th><th>{scorecard.hole3}</th><th>{scorecard.hole4}</th><th>{scorecard.hole5}</th><th>{scorecard.hole6}</th><th>{scorecard.hole7}</th>
-                        <th>{scorecard.hole8}</th><th>{scorecard.hole9}</th><th>{scorecard.hole10}</th><th>{scorecard.hole11}</th><th>{scorecard.hole12}</th><th>{scorecard.hole13}</th>
-                        <th>{scorecard.hole14}</th><th>{scorecard.hole15}</th><th>{scorecard.hole16}</th><th>{scorecard.hole17}</th><th>{scorecard.hole18}</th>
-                    </tr>
-                    <Par index={scorecard}></Par>
-                    {/*<tr>
-                      <th>Score</th>
-                      <th>{scorecard.score1}</th><th>{scorecard.score2}</th><th>{scorecard.score3}</th><th>{scorecard.score4}</th><th>{scorecard.score5}</th><th>{scorecard.score6}</th>
-                        <th>{scorecard.score7}</th><th>{scorecard.score8}</th><th>{scorecard.score9}</th><th>{scorecard.score10}</th><th>{scorecard.score11}</th><th>{scorecard.score12}</th>
-                        <th>{scorecard.score13}</th><th>{scorecard.score14}</th><th>{scorecard.score15}</th><th>{scorecard.score16}</th><th>{scorecard.score17}</th><th>{scorecard.score18}</th>
-                    </tr>*/}
-                    <Score index={scorecard}></Score>
-                    <tr>
-                      <th colSpan="19"><button value={scorecard.id} onClick={this.deleteScore}>DELETE</button></th>
-                    </tr>
-                  </tbody>
-                </table>
-            )
-          })}
+          <div className="table">
+            <h1>Scorecards</h1>
+            {this.state.golf.map((scorecard,index) => {
+              return (
+                  <table key={index}>
+                    <thead>
+                      <tr>
+                        <th colSpan="19">Date: {scorecard.date}</th>
+                      </tr>
+                      <tr>
+                        <th colSpan="19">Course:{scorecard.course}</th>
+                      </tr>
+                      <tr>
+                        <th colSpan="19">Teebox: {scorecard.teebox}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Hole</th>
+                        <th>{scorecard.hole1}</th><th>{scorecard.hole2}</th><th>{scorecard.hole3}</th><th>{scorecard.hole4}</th><th>{scorecard.hole5}</th><th>{scorecard.hole6}</th><th>{scorecard.hole7}</th>
+                          <th>{scorecard.hole8}</th><th>{scorecard.hole9}</th><th>{scorecard.hole10}</th><th>{scorecard.hole11}</th><th>{scorecard.hole12}</th><th>{scorecard.hole13}</th>
+                          <th>{scorecard.hole14}</th><th>{scorecard.hole15}</th><th>{scorecard.hole16}</th><th>{scorecard.hole17}</th><th>{scorecard.hole18}</th>
+                      </tr>
+                      <Par index={scorecard}></Par>
+
+                      <Score index={scorecard}></Score>
+                      <tr>
+                        <th colSpan="19"><button value={scorecard.id} onClick={this.deleteScore} className="delete">DELETE</button></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  )
+                }
+              )
+            }
+          </div>
+        </div>
+        <div className="footer">
+          <div className="footer-text">
+            <h2>Copyright</h2>
+          </div>
+          <div className="footer-links">
+            <i className="fa fa-github" style={{fontSize: "48px"}}></i>
+          </div>
         </div>
       </div>
     )

@@ -1,16 +1,94 @@
+.navbar {
+  border-bottom: 4px solid black;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Rowdies', cursive;
+  background-color: rgb(64,178,19);
+}
+
+.navbar h1 {
+  margin: auto 10px;
+}
+
+.navbar button {
+  width: 10rem;
+  height: 4rem;
+  margin: auto 10px;
+  background: rgb(52,100,61);
+  color: ghostwhite;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1538648759472-7251f7cb2c2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
+}
+
+.form {
+  width: 200px;
+  margin: 30px;
+  border-right: 5px solid ghostwhite;
+  padding: 10px
+}
+
+.form-body input {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
 .table {
   margin: 10px auto;
+  width: 69%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 980px;
+  overflow: auto;
 }
 
-table {
+.table h1 {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.table table {
   border: 1px solid grey;
   margin: 10px auto;
+  background-color: white;
+  color: inherit;
 }
 
-tr {
+.table tr {
+  border: 1px solid grey;
+  background-color: white;
+  color: inherit;
+}
+
+.table th {
   border: 1px solid grey;
 }
 
-th {
-  border: 1px solid grey;
+.delete {
+  background: rgb(255,50,50);
+  color: black;
+}
+
+.footer {
+  border-top: 4px solid black;
+  margin-top: 10px;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Rowdies', cursive;
+  background-color: rgb(64,178,19);
+}
+
+.footer-text {
+  margin: auto 10px;
+}
+
+.footer-links {
+  margin: auto 10px;
 }
