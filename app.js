@@ -509,6 +509,7 @@ class Score extends React.Component{
         this.setState({
           golf:response.data
         })
+        componentDidMount();
         console.log(this.state.golf);
       }
     )
