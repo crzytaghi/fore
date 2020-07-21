@@ -42,7 +42,7 @@ class App extends React.Component {
 // ========== CREATE A NEW SCORECARD ========== //
   createScorecard = (event) => {
     console.log(this.state);
-    event.preventDefault();
+    // event.preventDefault();
     axios.post(
       '/scorecards',
       {
@@ -58,7 +58,6 @@ class App extends React.Component {
       }
     ).then(
       (response) => {
-        console.log(response);
         this.setState({
           golf:response.data
         })
@@ -123,7 +122,7 @@ class App extends React.Component {
                 </form>
               </div>
               :
-              <div className="form-body">
+              <div className="form-text">
                 <h2>Click Add Score to Create a Scorecard</h2>
               </div>
             }
@@ -171,7 +170,9 @@ class App extends React.Component {
             <h2>Copyright</h2>
           </div>
           <div className="footer-links">
-            <i className="fa fa-github" style={{fontSize: "48px"}}></i>
+            <a href="https://github.com/crzytaghi/fore">
+              <i className="fa fa-github" style={{fontSize:"48px",color:"black"}}></i>
+            </a>
           </div>
         </div>
       </div>
@@ -469,7 +470,7 @@ class Score extends React.Component{
 
   updateScore = (event) => {
     const { index } = this.props
-    event.preventDefault();
+    // event.preventDefault();
     const id = event.target.getAttribute('id');
     axios.put(
       '/scorecards/' + id,
